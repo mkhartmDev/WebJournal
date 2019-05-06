@@ -18,14 +18,25 @@
         <script src="libs/bootstrap.min.js"></script>
     </head>
     <body>
-        
-        <div class="form-group">
-        <label for="addentry1">New Journal Entry</label>
-        
-        </div>
+        <div class="col-md-8 col-sm-12 col-xs-10">
+        <h1>New Journal Entry</h1>
+        <hr class="my-4">
+       
+        <div class ="container">
+        <label for="title">Title</label>
         <form action="AddEntry" method="post">
+        <input type="text" class="form-control" name="title" maxlength = "75"><br>
+        <label for="jent">Entry</label>
         <textarea class="form-control" name="jent" rows="4"></textarea>
-        <input type="submit" value = "add to my journal">
+        <br>
+        <input class="btn btn-outline-dark" type="submit" value = "Add to Journal">
         </form>
+        </div>
+        <br>
+        <div class="container">
+            <a class="btn btn-outline-danger btn-sm" href="welcome.jsp" role="button">Discard</a>
+        <div>
+        </div>
+        
     </body>
 </html>
