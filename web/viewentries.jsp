@@ -22,6 +22,7 @@
     <body>
         <div class="col-md-8 col-sm-12 col-xs-10">
         <h1>Journal Entries</h1>
+        <hr class="my-4">
             <%
             ArrayList<Entry> arrayList = new ArrayList<Entry>();
             if(request.getServletContext().getAttribute("entryList") != null){
@@ -31,17 +32,26 @@
                     <div class="list-group">
                         <li class="list-group-item list-group-item flex-column align-items-start">
                         <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1"><%=item.getUser()%></h5>
-                            <small class="text-muted">3 days ago</small>
+                            <h5 class="mb-1"><%=item.getTitle()%></h5>
+                            <small class="text-muted"><%=item.getDateFormatted()%></small>
                         </div>
                         <p class="mb-1"><%=item.getEntry()%></p>
-                        <small class="text-muted">Donec id elit non mi porta.</small>
+                            <small class="text-muted">
+                            <form action="DeleteEntry" method="get"> 
+                            <input type="hidden" name="delete" value="<%=item.getEntryid()%>"> 
+                            <input type="submit" class="btn btn-outline-danger btn-sm" value="Delete">
+                            </form> 
+                            </small>
                         </li>
                     </div>
             <%  }
                 }
                 }
             %>
+            <br>
+            <div class="container">
+            <a class="btn btn-outline-dark" href="welcome.jsp" role="button">Back to Home</a>
+            <div>
        </div>
     </body>
 </html>

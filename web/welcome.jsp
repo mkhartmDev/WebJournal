@@ -32,17 +32,19 @@
         <div style="background-color: transparent;" class="jumbotron">
             <h1 class="display-5">Welcome, ${username}</h1>
             <hr class="my-4">
-            <a class="btn btn-primary btn-lg btn-block" href="viewentries.jsp" role="button" action="ViewEntries">View Journal Entries</a>
+            <div class="container">
+            <form action="ViewEntries">
+                <input class="btn btn-primary btn-lg btn-block" type="submit" class="btn btn-outline-dark" value="View Journal Entries">
+            </form>
+            </div>
+            <br>
+            <div class="container">
             <a class="btn btn-primary btn-lg btn-block" href="newentry.jsp" role="button">New Journal Entry</a>
+            </div>
         </div>
         <div class="container">
             <form action="Logout">
                 <input type="submit" class="btn btn-outline-dark" value="Logout">
-            </form>
-        </div>
-            <div class="container">
-            <form action="ViewEntries">
-                <input type="submit" class="btn btn-outline-dark" value="View">
             </form>
         </div>
         </div>

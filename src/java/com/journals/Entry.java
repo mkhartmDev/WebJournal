@@ -7,6 +7,7 @@ package com.journals;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -17,6 +18,9 @@ public class Entry {
      private String User;
     private Timestamp ts;
     private String entry;
+    private String title;
+    private int Entryid;
+    
 
     /**
      * @return the User
@@ -58,6 +62,41 @@ public class Entry {
      */
     public void setEntry(String entry) {
         this.entry = entry;
+    }
+
+    /**
+     * @return the title
+     */
+    public String getTitle() {
+        return title;
+    }
+
+    /**
+     * @param title the title to set
+     */
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    
+    
+    public String getDateFormatted() {
+        Timestamp ts1 = this.getTs();
+        Date date=new Date(ts1.getTime());  
+        return date.toString();
+    }
+
+    /**
+     * @return the Entryid
+     */
+    public int getEntryid() {
+        return Entryid;
+    }
+
+    /**
+     * @param Entryid the Entryid to set
+     */
+    public void setEntryid(int Entryid) {
+        this.Entryid = Entryid;
     }
     
     

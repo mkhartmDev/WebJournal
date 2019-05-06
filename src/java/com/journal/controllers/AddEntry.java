@@ -34,6 +34,7 @@ public class AddEntry extends HttpServlet {
             throws ServletException, IOException {
         
         request.getSession();
+        String title = request.getParameter("title"); 
         String entry = request.getParameter("jent"); 
         String user = (String)request.getSession().getAttribute("username");
         Timestamp ts = new Timestamp(System.currentTimeMillis());
@@ -42,6 +43,7 @@ public class AddEntry extends HttpServlet {
         ent.setEntry(entry);
         ent.setUser(user);
         ent.setTs(ts);
+        ent.setTitle(title);
         
         EntryDataAccess dao = new EntryDataAccess();
         try {

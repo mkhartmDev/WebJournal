@@ -30,7 +30,7 @@ public class EntryDataAccess {
     
     public void add (Entry ent) throws SQLException {
         
-        String sql = "insert into entry (User, EDate, Entry) values (?, current_timestamp(), ?)";
+        String sql = "insert into entry (User, EDate, Title, Entry) values (?, current_timestamp(), ?, ?)";
         String url = "jdbc:mysql://localhost:3306/journal";
         
         // Database server login credentials 
@@ -43,7 +43,8 @@ public class EntryDataAccess {
             
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setString(1, ent.getUser());
-            statement.setString(2, ent.getEntry());
+            statement.setString(2, ent.getTitle());
+            statement.setString(3, ent.getEntry());
             statement.executeUpdate();
             
             
@@ -56,6 +57,7 @@ public class EntryDataAccess {
     
     public ArrayList<Entry> retrieve (String user) throws SQLException
     {
+       // table scan, not good for time complexity. could be improved with index
         String sql =  "select * from entry where User = ?";
         String url = "jdbc:mysql://localhost:3306/journal";
         
@@ -78,6 +80,8 @@ public class EntryDataAccess {
             ent.setUser(rs.getString("User"));
             ent.setEntry(rs.getString("Entry"));
             ent.setTs(rs.getTimestamp("EDAte"));
+            ent.setTitle(rs.getString("Title"));
+            ent.setEntryid(rs.getInt("RefNo"));
             arr.add(ent);
             }
            
@@ -88,5 +92,31 @@ public class EntryDataAccess {
         return arr;
         
     }
+    
+    public void delete (Entry ent) throws SQLException {
+        
+        String sql = " delete from entry where RefNo = ?";
+        String url = "jdbc:mysql://localhost:3306/journal";
+        
+        // Database server login credentials 
+        String username = "root";
+        String password = "password";
+        
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(url, username, password);
+            
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setInt(1, ent.getEntryid());
+            statement.executeUpdate();
+            
+            
+                    } catch (ClassNotFoundException ex) {
+            Logger.getLogger(LoginDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }
+    
     
 }
