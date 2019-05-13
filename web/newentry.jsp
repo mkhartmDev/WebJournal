@@ -18,6 +18,16 @@
         <script src="libs/bootstrap.min.js"></script>
     </head>
     <body>
+        
+        <%
+            // session management: secure page wont be visible after logout
+            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+            
+           if(session.getAttribute("username")==null)
+           {
+               response.sendRedirect("index.jsp"); 
+           } %>
+        
         <%@ taglib prefix="xx" uri="WEB-INF/tlds/jourlib.tld" %>
         <div class="col-md-8 col-sm-12 col-xs-10">
         <h1>New Journal Entry</h1>

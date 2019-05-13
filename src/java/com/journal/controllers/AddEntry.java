@@ -39,11 +39,7 @@ public class AddEntry extends HttpServlet {
         String user = (String)request.getSession().getAttribute("username");
         Timestamp ts = new Timestamp(System.currentTimeMillis());
         
-        Entry ent = new Entry();
-        ent.setEntry(entry);
-        ent.setUser(user);
-        ent.setTs(ts);
-        ent.setTitle(title);
+        Entry ent = new Entry(user, entry, title, ts);
         
         EntryDataAccess dao = new EntryDataAccess();
         try {

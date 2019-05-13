@@ -73,12 +73,8 @@ public class EntryDataAccess {
             ResultSet rs = statement.executeQuery();
             
             while (rs.next()) {
-            Entry ent = new Entry();
-            ent.setUser(rs.getString("User"));
-            ent.setEntry(rs.getString("Entry"));
-            ent.setTs(rs.getTimestamp("EDAte"));
-            ent.setTitle(rs.getString("Title"));
-            ent.setEntryid(rs.getInt("RefNo"));
+            Entry ent = new Entry(rs.getString("User"), rs.getString("Entry"), 
+                    rs.getString("Title"), rs.getTimestamp("EDAte"), rs.getInt("RefNo"));
             arr.add(ent);
             }
            

@@ -38,7 +38,7 @@
             <input type="submit" class="btn btn-outline-dark" value = "login">
             </form>
             <br>
-            <a href="signup.jsp">I don't have an account yet. Sign me up!</a>.
+            <a href="signup.jsp">I don't have an account yet. Sign me up!</a>
         </div>   
     </body>
 </html>

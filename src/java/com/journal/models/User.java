@@ -7,7 +7,7 @@ package com.journal.models;
 
 /**
  *
- * @author EliteDev
+ * @author Matt
  */
 public class User {
     

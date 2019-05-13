@@ -15,11 +15,28 @@ import java.text.SimpleDateFormat;
  */
 public class Entry {
     
-     private String User;
+    private String User;
     private Timestamp ts;
     private String entry;
     private String title;
     private int Entryid;
+    
+    public Entry(){}
+    
+    public Entry(String u, String en, String tit, Timestamp t, int e){
+        User = u;
+        entry = en;
+        title = tit;
+        ts = t;
+        Entryid = e;
+    }
+    
+    public Entry(String u, String en, String tit, Timestamp t){
+        User = u;
+        entry = en;
+        title = tit;
+        ts = t;
+    }
     
 
     /**
