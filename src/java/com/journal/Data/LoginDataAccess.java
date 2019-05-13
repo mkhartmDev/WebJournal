@@ -57,10 +57,7 @@ public class LoginDataAccess
         
          String sql = "insert into login (username, password, email) values (?,?,?);";
          String url = "jdbc:mysql://localhost:3306/journal";
-        
-        // Database server login credentials 
-        String username = "root";
-        String password = "password";
+       
         
         try {
             Class.forName("com.mysql.jdbc.Driver");
