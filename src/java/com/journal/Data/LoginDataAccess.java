@@ -22,18 +22,20 @@ import java.util.logging.Logger;
  */
 public class LoginDataAccess 
 {
+    
+    //Database server credentials
+    String DataUsername = "root";
+    String DataPassword = "password";
+    
+    
     public boolean check (String uname, String pass) throws SQLException
     {
         String sql = "select * from login where username=? and password=?";
         String url = "jdbc:mysql://localhost:3306/journal";
         
-        // Database server login credentials 
-        String username = "root";
-        String password = "password";
-        
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection(url, username, password);
+            Connection con = DriverManager.getConnection(url, DataUsername, DataPassword);
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setString(1, uname);
             statement.setString(2, pass);
@@ -62,7 +64,7 @@ public class LoginDataAccess
         
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection(url, username, password);
+            Connection con = DriverManager.getConnection(url, DataUsername, DataPassword);
             
             //check if user already exists
             // for now we will just send a redirect back to signup
@@ -85,13 +87,9 @@ public class LoginDataAccess
         String sql = "select * from login where username=?";
         String url = "jdbc:mysql://localhost:3306/journal";
         
-        // Database server login credentials 
-        String username = "root";
-        String password = "password";
-        
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection(url, username, password);
+            Connection con = DriverManager.getConnection(url, DataUsername, DataPassword);
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setString(1, user.getUsername());
             ResultSet rs = statement.executeQuery();

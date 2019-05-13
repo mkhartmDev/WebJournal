@@ -28,18 +28,19 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class EntryDataAccess {
     
+    //Database server credentials
+    String DataUsername = "root";
+    String DataPassword = "password";
+    
+    
     public void add (Entry ent) throws SQLException {
         
         String sql = "insert into entry (User, EDate, Title, Entry) values (?, current_timestamp(), ?, ?)";
         String url = "jdbc:mysql://localhost:3306/journal";
         
-        // Database server login credentials 
-        String username = "root";
-        String password = "password";
-        
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection(url, username, password);
+            Connection con = DriverManager.getConnection(url, DataUsername, DataPassword);
             
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setString(1, ent.getUser());
@@ -61,15 +62,11 @@ public class EntryDataAccess {
         String sql =  "select * from entry where User = ?";
         String url = "jdbc:mysql://localhost:3306/journal";
         
-        // Database server login credentials 
-        String username = "root";
-        String password = "password";
-        
         ArrayList<Entry> arr = new ArrayList<Entry>();
         
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection(url, username, password);
+            Connection con = DriverManager.getConnection(url, DataUsername, DataPassword);
             
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setString(1, user);
@@ -98,13 +95,9 @@ public class EntryDataAccess {
         String sql = " delete from entry where RefNo = ?";
         String url = "jdbc:mysql://localhost:3306/journal";
         
-        // Database server login credentials 
-        String username = "root";
-        String password = "password";
-        
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection(url, username, password);
+            Connection con = DriverManager.getConnection(url, DataUsername, DataPassword);
             
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setInt(1, ent.getEntryid());
