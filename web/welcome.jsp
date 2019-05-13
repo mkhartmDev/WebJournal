@@ -19,7 +19,7 @@
     </head>
     <body>
         <%
-            // security measure so secure page wont be visible after logout
+            // session management: secure page wont be visible after logout
             response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
             
            if(session.getAttribute("username")==null)

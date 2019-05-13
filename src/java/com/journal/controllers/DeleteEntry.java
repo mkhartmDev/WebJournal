@@ -6,7 +6,7 @@
 package com.journal.controllers;
 
 import com.journal.Data.EntryDataAccess;
-import com.journals.Entry;
+import com.journal.models.Entry;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author EliteDev
+ * @author Matt
  */
 public class DeleteEntry extends HttpServlet {
 

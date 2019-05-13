@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.journals;
+package com.journal.models;
 
 import java.sql.Date;
 import java.sql.Timestamp;
@@ -81,8 +81,13 @@ public class Entry {
     
     public String getDateFormatted() {
         Timestamp ts1 = this.getTs();
-        Date date=new Date(ts1.getTime());  
-        return date.toString();
+        Date date = new Date(ts1.getTime());
+        String p = "MM/dd/YYYY";
+        SimpleDateFormat sd = new SimpleDateFormat(p);
+        String sdate = sd.format(date);
+        
+        
+        return sdate;
     }
 
     /**

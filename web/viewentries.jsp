@@ -4,7 +4,7 @@
     Author     : Matt
 --%>
 
-<%@page import="com.journals.Entry"%>
+<%@page import="com.journal.models.Entry"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -41,17 +41,16 @@
                             <input type="hidden" name="delete" value="<%=item.getEntryid()%>"> 
                             <input type="submit" class="btn btn-outline-danger btn-sm" value="Delete">
                             </form> 
-                            </small>
+                        </small>
                         </li>
+                        <br>
                     </div>
             <%  }
                 }
                 }
             %>
             <br>
-            <div class="container">
             <a class="btn btn-outline-dark" href="welcome.jsp" role="button">Back to Home</a>
-            <div>
        </div>
     </body>
 </html>

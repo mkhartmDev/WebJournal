@@ -1,6 +1,6 @@
 <%-- 
-    Document   : login
-    Created on : Apr 20, 2019, 3:45:25 PM
+    Document   : signup
+    Created on : May 12, 2019, 3:53:40 PM
     Author     : Matt
 --%>
 
@@ -24,9 +24,13 @@
             <div class="col-md-4 col-sm-4 col-xs-10">
                 
                 <h1>My Online Journal</h1><br>
-                <h3>Login</h3><br>
+                <h3>Create Account</h3><br>
             
-            <form action="Login" method="post">
+            <form action="SignUp" method="post">
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input type="text" class="form-control" name="email" type="email"><br>
+            </div>
             <div class="form-group">
                 <label for="Username">Username</label>
                 <input type="text" class="form-control" name="uname"><br>
@@ -35,10 +39,8 @@
                 <label for="Password">Password</label>
                 <input type="password" class="form-control" name="pass"><br>
             </div>
-            <input type="submit" class="btn btn-outline-dark" value = "login">
+            <input type="submit" class="btn btn-outline-dark" value = "Create Account">
             </form>
-            <br>
-            <a href="signup.jsp">I don't have an account yet. Sign me up!</a>.
         </div>   
     </body>
 </html>

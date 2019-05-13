@@ -18,11 +18,12 @@
         <script src="libs/bootstrap.min.js"></script>
     </head>
     <body>
+        <%@ taglib prefix="xx" uri="WEB-INF/tlds/jourlib.tld" %>
         <div class="col-md-8 col-sm-12 col-xs-10">
         <h1>New Journal Entry</h1>
         <hr class="my-4">
        
-        <div class ="container">
+        <label><p>The date of your entry is: <xx:Date />.</p></label><br>
         <label for="title">Title</label>
         <form action="AddEntry" method="post">
         <input type="text" class="form-control" name="title" maxlength = "75"><br>
@@ -31,11 +32,10 @@
         <br>
         <input class="btn btn-outline-dark" type="submit" value = "Add to Journal">
         </form>
-        </div>
         <br>
-        <div class="container">
-            <a class="btn btn-outline-danger btn-sm" href="welcome.jsp" role="button">Discard</a>
-        <div>
+        <a class="btn btn-outline-danger btn-sm" href="welcome.jsp" role="button">Discard</a><br>
+        
+        
         </div>
         
     </body>
